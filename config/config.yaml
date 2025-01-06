@@ -4,9 +4,9 @@ EMBEDDINGS:
     EMBEDDINGS: sentence-transformers/all-MiniLM-L6-v2
 
 # MongoDB Related Config
-MONGODB:
-  DB_NAME: K12bot
+MONGODB: 
+  DB_NAME: k12chatbot
 
 # Pinecone related Config
 PINECONE_DB:
-  INDEX_NAME: K12bot
+  INDEX_NAME: k12test
