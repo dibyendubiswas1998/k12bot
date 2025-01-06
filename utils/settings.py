@@ -96,9 +96,9 @@ class GETEMBEDDING:
         self.__hfem = self.config.HF_MODEL.EMBEDDINGS # Get the HuggingFace model name
     
     
-    async def load_embeddings_from_hf(self, query:str) -> List[float]:
+    async def generate_embeddings_from_hf(self, query:str) -> List[float]:
         """
-            Asynchronously loads embeddings from a specified HuggingFace model for a given query.
+            Asynchronously generate embeddings from a specified HuggingFace model for a given query.
 
             Parameters:
                 - query (str): The input text for which embeddings need to be generated.
@@ -119,6 +119,17 @@ class GETEMBEDDING:
             log(f"Error loading embeddings: {ex}") # logs error loading embeddings
             raise ex
 
+
+
+    def get_embeddings_from_hf(self) ->  HuggingFaceEmbeddings:
+        try:
+            embeddings = HuggingFaceEmbeddings(model_name=self.__hfem)
+            log(f"Successfully loaded embeddings from HuggingFace model: {self.__hfem}") # logs successful loading of embeddings from HuggingFace model
+            return embeddings
+
+        except Exception as ex:
+            log(f"Error loading embeddings: {ex}") # logs error loading embeddings
+            raise ex
 
 
 class MONGODB:
